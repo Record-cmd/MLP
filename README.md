@@ -4,4 +4,5 @@ MLP
 
 사용한 예제
 two_layer_net : https://github.com/WegraLee/deep-learning-from-scratch/blob/master/ch04/two_layer_net.py
+
 common : https://github.com/WegraLee/deep-learning-from-scratch/tree/master/common
