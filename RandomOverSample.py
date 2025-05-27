@@ -36,13 +36,10 @@ print(y_test)
 y_train_resampled = encoder.fit_transform(y_train_resampled.values.reshape(-1,1))
 y_test_enc = encoder.transform(y_test.values.reshape(-1,1)) #목표변수
 
-
 print("y_train 원핫코딩 결과")
 print(y_train_resampled)
 print("y_test_enc 원핫코딩 결과")
 print(y_test_enc)
-
-#x_train_resampled,y_train_resampled=ros.fit_resample(x_train, y_train)
 
 labels = y_train_resampled.argmax(axis=1)
 
