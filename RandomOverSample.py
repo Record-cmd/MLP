@@ -5,6 +5,9 @@ from sklearn.preprocessing import OneHotEncoder
 from two_layer_net import TwoLayerNet
 import numpy as np
 from imblearn.over_sampling import RandomOverSampler
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
 
 diabetes_frame = fs.read_Data()
 encoder = OneHotEncoder(sparse_output=False)#sparse_output=False << numpy array반환
@@ -52,9 +55,6 @@ class_counts = dict(zip(unique, counts))
 print("샘플링 이후 각 클래스별 개수")
 print(class_counts)
 
-
-x_test = x_test.to_numpy()
-x_train_resampled = x_train_resampled.to_numpy()
 
 #--------------------------------------------------------------------------
 
