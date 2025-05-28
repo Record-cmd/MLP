@@ -28,10 +28,14 @@ print('='*20)
 
 x_train_resampled,y_train_resampled=ros.fit_resample(x_train, y_train)
 
+
 print("y_train 기존 결과")
 print(y_train_resampled)
 print("y_test 기존 결과")
 print(y_test)
+
+x_train_resampled = scaler.fit_transform(x_train_resampled)
+x_test = scaler.transform(x_test)
 
 y_train_resampled = encoder.fit_transform(y_train_resampled.values.reshape(-1,1))
 y_test_enc = encoder.transform(y_test.values.reshape(-1,1)) #목표변수
