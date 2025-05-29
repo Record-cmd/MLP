@@ -5,12 +5,13 @@ from sklearn.preprocessing import OneHotEncoder
 from two_layer_net import TwoLayerNet
 import numpy as np
 from imblearn.over_sampling import RandomOverSampler
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
 
-scaler = StandardScaler()
+scaler = MinMaxScaler()
+
 
 diabetes_frame = fs.read_Data()
-encoder = OneHotEncoder(sparse_output=False)#sparse_output=False << numpy array반환
+encoder = OneHotEncoder(sparse_output=False)                                                                            #sparse_output=False << numpy array반환
 ros = RandomOverSampler()
 
 x = diabetes_frame.drop('Diabetes_012', axis = 1) #목표변수를 제외한 속성들
@@ -31,7 +32,6 @@ print('='*20)
 
 x_train_resampled,y_train_resampled=ros.fit_resample(x_train, y_train)
 
-
 print("y_train 기존 결과")
 print(y_train_resampled)
 print("y_test 기존 결과")
@@ -42,6 +42,7 @@ x_test = scaler.transform(x_test)
 
 y_train_resampled = encoder.fit_transform(y_train_resampled.values.reshape(-1,1))
 y_test_enc = encoder.transform(y_test.values.reshape(-1,1)) #목표변수
+
 
 print("y_train 원핫코딩 결과")
 print(y_train_resampled)
@@ -56,11 +57,14 @@ print("샘플링 이후 각 클래스별 개수")
 print(class_counts)
 
 
+#x_test = x_test.to_numpy()
+#x_train_resampled = x_train_resampled.to_numpy()
+
 #--------------------------------------------------------------------------
 
 network = TwoLayerNet(input_size = 21, hidden_size = 100, output_size=3)
 
-iters_num= 50000
+iters_num= 25000
 train_size = x_train_resampled.shape[0]
 print(train_size)
 batch_size = 1026
