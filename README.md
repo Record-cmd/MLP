@@ -7,7 +7,6 @@ two_layer_net : https://github.com/WegraLee/deep-learning-from-scratch/blob/mast
 
 common : https://github.com/WegraLee/deep-learning-from-scratch/tree/master/common
 
-----------------------------------------------------------------------------------
 프로젝트 목적
 -------------------------------------------------------------------------------------------
 MLP 모델을 학습시키는 과정을 통해 머신러닝의 작동원리를 이해하고 학습과정에서 발생할 수 있는 문제점에대해 해결방안을 탐색한다.
